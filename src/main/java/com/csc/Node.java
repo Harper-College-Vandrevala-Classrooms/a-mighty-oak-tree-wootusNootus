@@ -1,30 +1,36 @@
 package com.csc;
 
-public class Node {
-  Node left, right;
+public class Node<T> {
+  Node<T> left, right;
+  T data;
   String name;
 
-  public Node(Squirrel data){
-    name = data.getName();
+  public Node(T data){
+    this.data = data;
+    this.name = ((Squirrel)data).getName();
   }
 
-  public void setLeft(Node leftNode) {
+  public void setLeft(Node<T> leftNode) {
     this.left = leftNode;
   }
 
-  public void setRight(Node rightNode) {
+  public void setRight(Node<T> rightNode) {
     this.right = rightNode;
   }
 
-  public Node left() {
+  public Node<T> left() {
     return this.left;
   }
 
-  public Node right() {
+  public Node<T> right() {
     return this.right;
   }
 
   public String getName() {
     return this.name;
+  }
+
+  public T getData() {
+    return this.data;
   }
 }
